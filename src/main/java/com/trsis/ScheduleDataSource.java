@@ -24,6 +24,7 @@ public class ScheduleDataSource {
 			dep.setDestination("MSK");
 			dep.setFromTimestamp(LocalDateTime.parse("2024-02-12T00:00:00"));
 			dep.setToTimestamp(LocalDateTime.parse("2024-02-12T01:00:00"));
+			dep.setDepartureType(DepartureType.Train);
 			
 			instance.addDeparture(dep);
 		}

@@ -24,23 +24,14 @@ public class MainServlet extends jakarta.servlet.http.HttpServlet {
      * Default constructor. 
      */
     public MainServlet() {
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		ScheduleDataSource ds = ScheduleDataSource.getInstance();
 		
 		PrintWriter writer = response.getWriter();
-		
-		// кодировка
-//		writer.append("<head>\r\n"
-//				+ "  <meta charset=\"UTF-8\">\r\n"
-//				+ "</head>\r\n");
 		
 		Utils.appendHead(writer);
 		
@@ -55,6 +46,7 @@ public class MainServlet extends jakarta.servlet.http.HttpServlet {
 		writer.append("<th>До</th>");
 		writer.append("<th>С</th>");
 		writer.append("<th>ПО</th>");
+		writer.append("<th>Вид</th>");
 		
 		writer.append("</tr>");
 		
@@ -68,6 +60,7 @@ public class MainServlet extends jakarta.servlet.http.HttpServlet {
 			writer.append("<td>" + (dep.getDestination()).toString() + "</td>");
 			writer.append("<td>" + (dep.getFromTimestamp()).toString() + "</td>");
 			writer.append("<td>" + (dep.getToTimeStamp()).toString() + "</td>");
+			writer.append("<td>" + (dep.getDepartureType()).toString() + "</td>");
 			
 			writer.append("<td>");
 			
@@ -75,11 +68,7 @@ public class MainServlet extends jakarta.servlet.http.HttpServlet {
 					+ "    <button type=\"submit\" name=\"your_name\" value=\"your_value\" class=\"btn-link\">Удалить</button>\r\n"
 					+ "</form>", dep.getId()));
 			
-//			writer.append("<a href=\"");
-//			writer.append("deleteDeparture?id=");
-//			writer.append(new Integer(dep.getId()).toString());
-//			writer.append("\">Удалить</a>");
-			
+
 			writer.append("</td>");
 			
 			writer.append("</tr>");
@@ -94,7 +83,6 @@ public class MainServlet extends jakarta.servlet.http.HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

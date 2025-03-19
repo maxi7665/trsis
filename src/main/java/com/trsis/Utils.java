@@ -9,7 +9,7 @@ public class Utils {
 				+ "  <head>\r\n"
 				+ "    <meta charset=\"utf-8\">\r\n"
 				+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n"
-				+ "    <title>Bootstrap demo</title>\r\n"
+				+ "    <title>Расписание</title>\r\n"
 				+ "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65\" crossorigin=\"anonymous\">\r\n"
 				+ "  </head>\r\n"
 				+ "  <body>\r\n"

@@ -11,6 +11,7 @@ public class Departure {
 	private String destination;
 	private LocalDateTime fromTimestamp;
 	private LocalDateTime toTimestamp;
+	private DepartureType departureType;
 	
 	public int getId() {
 		return id;
@@ -43,6 +44,13 @@ public class Departure {
 		this.toTimestamp = toTimeStamp;
 	}
 	
+	public DepartureType getDepartureType() {
+		return departureType;
+	}
+	public void setDepartureType(DepartureType departureType) {
+		this.departureType = departureType;
+	}
+	
 	public static Departure fromParameterMap(Map<String, String[]> parameterMap)
 	{
 		Map<String, String> props = new HashMap<String, String>();
@@ -71,7 +79,6 @@ public class Departure {
 		if (parameterMap.containsKey("fromTimestamp")) {
 			String timestamp = parameterMap.get("fromTimestamp");
 			
-			//DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			LocalDateTime dateTime = LocalDateTime.parse(timestamp);	
 			
 			dep.setFromTimestamp(dateTime);
@@ -80,11 +87,20 @@ public class Departure {
 		if (parameterMap.containsKey("toTimestamp")) {
 			String timestamp = parameterMap.get("toTimestamp");
 			
-			//DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			LocalDateTime dateTime = LocalDateTime.parse(timestamp);
 			
 			dep.setToTimestamp(dateTime);
 		}
+		
+		if (parameterMap.containsKey("departureType")) {
+			
+			DepartureType type = Enum.valueOf(
+					DepartureType.class, 
+					parameterMap.get("departureType"));
+			
+			dep.setDepartureType(type);
+		}	
+		
 		
 		return dep;
 	}

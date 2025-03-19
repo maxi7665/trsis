@@ -16,14 +16,9 @@ public class DeleteDepartureServlet extends HttpServlet {
      * Default constructor. 
      */
     public DeleteDepartureServlet() {
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		ScheduleDataSource sds = ScheduleDataSource.getInstance();
 		

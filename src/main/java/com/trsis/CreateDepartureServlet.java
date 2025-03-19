@@ -29,18 +29,9 @@ public class CreateDepartureServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		PrintWriter writer = response.getWriter();
-		
-		// кодировка
-//		writer.append("<head>\r\n"
-//				+ "  <meta charset=\"UTF-8\">\r\n"
-//				+ "</head>\r\n");
 		
 		Utils.appendHead(writer);
 		
@@ -58,17 +49,19 @@ public class CreateDepartureServlet extends HttpServlet {
 				+ "  <input name=\"fromTimestamp\" type=\"datetime-local\"><br>\r\n"
 				+ "<label for=\"toTimestamp\">Прибытие В</label>"
 				+ "  <input name=\"toTimestamp\" type=\"datetime-local\"><br>\r\n"
+				+ "<label for=\"departureType\">Тип</label>"
+				+ "<select name=\"departureType\">\r\n"
+				+ "  <option value=\"None\">--Выберите--</option>\r\n"
+				+ "  <option value=\"Train\">Поезд</option>\r\n"
+				+ "  <option value=\"Plane\">Самолет</option>\r\n"
+				+ "  <option value=\"Ship\">Корабль</option>\r\n"
+				+ "</select>"
 				+ "<button>Создать</button>"
 				+ "</form>");
 		
 		Utils.appendTail(writer);
-		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Map<String, String[]> parameters = request.getParameterMap();
